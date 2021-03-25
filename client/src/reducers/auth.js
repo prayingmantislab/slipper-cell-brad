@@ -1,4 +1,4 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL } from '../actoins/types';
+import { REGISTER_SUCCESS, REGISTER_FAIL } from '../actions/types';
 
 const intialState = {
   token: localStorage.getItem('token'),
@@ -7,7 +7,7 @@ const intialState = {
   user: null,
 };
 
-export default const authReducer = (state = intialState, action) =>{
+export default function (state = intialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -26,7 +26,8 @@ export default const authReducer = (state = intialState, action) =>{
         token: null,
         isAuthenticated: false,
         loading: false,
-      }
-    default: return state;
+      };
+    default:
+      return state;
   }
 }
