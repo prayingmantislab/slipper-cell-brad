@@ -7,7 +7,7 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
-
+//added this line jus to add a commit
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
