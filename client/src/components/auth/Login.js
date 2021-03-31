@@ -6,8 +6,8 @@ import { login } from '../../actions/auth';
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: 'et@meir.com',
+    password: '123456',
   });
 
   const { email, password } = formData;
@@ -20,9 +20,9 @@ const Login = ({ login, isAuthenticated }) => {
     login(email, password);
   };
 
-  // Redirect if logged in 
-  if(isAuthenticated) {
-    return <Redirect to= '/dashboard' />
+  // Redirect if logged in
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
   }
   return (
     <Fragment>
@@ -60,7 +60,7 @@ const Login = ({ login, isAuthenticated }) => {
   );
 };
 
-login.propTypes = {
+Login.propTypes = {
   login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
 };

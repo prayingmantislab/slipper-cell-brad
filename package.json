@@ -12,6 +12,8 @@
   "author": "Asi Meir",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "client": "file:client",
@@ -22,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mongoose": "^5.11.16",
+    "mui-datatables": "^3.7.6",
     "react-moment": "^1.1.1",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
