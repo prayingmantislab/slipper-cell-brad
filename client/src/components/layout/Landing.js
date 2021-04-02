@@ -6,10 +6,8 @@ const Landing = () => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Slipper Cell</h1>
-          <p className='lead'>
-            Manage sleep experiments
-          </p>
+          <h1 className='x-large'>Sleepper Cell</h1>
+          <p className='lead'>Manage sleep experiments</p>
           <div className='buttons'>
             <Link to='/register' className='btn btn-primary'>
               Sign Up
