@@ -20,6 +20,7 @@ if (localStorage.token) {
 }
 
 const App = () => {
+  debugger
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
