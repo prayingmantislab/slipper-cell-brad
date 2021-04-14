@@ -4,7 +4,9 @@ import MaterialTable from 'material-table';
 
 const Dashboard = () => {
   const [data, setData] = useState([
-    {name: " Pila p ", job: "Rapper", age:45 }
+    {name: "Liran", sleepScore: 45, sleepTime :'23:00', wakeTime: '5:00',totalSleep:6, noise: 0.92, light: 23 },
+    {name: "Asi", sleepScore: 95, sleepTime :'23:00', wakeTime: '7:00',totalSleep:8, noise: 0.52, light: 40 },
+    {name: "Hasan", sleepScore: 98, sleepTime :'1:00', wakeTime: '6:00',totalSleep:5, noise: 0.52, light: 40 }
   ]);
   return (
     <div>
@@ -12,17 +14,40 @@ const Dashboard = () => {
         columns={[
           {
             title: "Name",
-            field: "name"
+            field: "name",
+            type: 'text'
           },
           {
-            title:"Ocupation",
-            field: "job"
+            title:"Sleep score",
+            field: "sleepScore",
+            type: 'number'
           },
           {
-            title: "Age",
-            field: "age",
-            type: "numeric"
-          }
+            title: "Sleep Time",
+            field: "sleepTime",
+            type: "time"
+          },
+          {
+            title:"Wake Time",
+            field: "wakeTime",
+            type: 'time'
+          },
+          {
+            title:"Total Sleep",
+            field: "totalSleep",
+            type: 'number'
+          },
+          {
+            title: "Noise(avg)",
+            field: "noise",
+            type: "number"
+          },
+        {
+          title: "Light(avg)",
+          field: "light",
+          type: "number"
+        }
+
         ]}
         data={data}
         
