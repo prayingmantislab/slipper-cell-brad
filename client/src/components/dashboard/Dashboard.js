@@ -4,11 +4,14 @@ import MaterialTable from 'material-table';
 
 const Dashboard = () => {
   const [data, setData] = useState([
-    {name: " Pila p ", job: "Rapper", age:45 }
+    {name: " Pila p ", job: "Rapper", age:45 },{name: " Nimi nim ", job: "Rapper", age:45 }
   ]);
   return (
     <div>
       <MaterialTable
+      options={{
+        grouping: true
+      }}
         columns={[
           {
             title: "Name",
