@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import MaterialTable from 'material-table';
+import searchIcon from "@material-ui/icons/Search";
+
 
 const MembersTable = () => {
   const [data, setData] = useState([
