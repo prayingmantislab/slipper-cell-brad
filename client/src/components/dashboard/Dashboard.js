@@ -1,34 +1,84 @@
 import React, { useState } from 'react';
 import MaterialTable from 'material-table';
 
-
 const Dashboard = () => {
   const [data, setData] = useState([
-    {name: " Pila p ", job: "Rapper", age:45 },{name: " Nimi nim ", job: "Rapper", age:45 }
+    {
+      userId: 123,
+      date: '4/5/21',
+      name: 'Luka Duncic',
+      light: 123,
+      noise: 321,
+      sleepTime: '23:00',
+      wakeTime: '6:00',
+      totalSleep: '7hr',
+      sleepScore: 90,
+    },
+    {
+      userId: 124,
+      date: '4/5/21',
+      name: 'Steph Curry',
+      light: 123,
+      noise: 321,
+      sleepTime: '23:00',
+      wakeTime: '5:00',
+      totalSleep: '6hr',
+      sleepScore: 95,
+    },
   ]);
   return (
     <div>
       <MaterialTable
-      options={{
-        grouping: true
-      }}
+        options={{
+          grouping: true,
+        }}
         columns={[
           {
-            title: "Name",
-            field: "name"
+            title: 'User Id',
+            field: 'userId',
+            type: 'numeric',
           },
           {
-            title:"Ocupation",
-            field: "job"
+            title: 'Date',
+            field: 'date',
           },
           {
-            title: "Age",
-            field: "age",
-            type: "numeric"
-          }
+            title: 'Full Name',
+            field: 'name',
+            type: 'string',
+          },
+          {
+            title: 'Light',
+            field: 'light',
+            type: 'numeric',
+          },
+          {
+            title: 'Noise',
+            field: 'noise',
+            type: 'numeric',
+          },
+          {
+            title: 'Sleep Time',
+            field: 'sleepTime',
+            type: 'numeric',
+          },
+          {
+            title: 'Wake Time',
+            field: 'wakeTime',
+            type: 'numeric',
+          },
+          {
+            title: 'Total Sleep',
+            field: 'totalSleep',
+            type: 'numeric',
+          },
+          {
+            title: 'Sleep Score',
+            field: 'sleepScore',
+            type: 'numeric',
+          },
         ]}
         data={data}
-        
       />
     </div>
   );
