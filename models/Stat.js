@@ -9,7 +9,6 @@ const StatSchema = new Schema({
   },
   name: {
     type: String,
-    required: true,
   },
   light: {
     type: Number,
@@ -18,10 +17,10 @@ const StatSchema = new Schema({
     type: Number,
   },
   sleepTime: {
-    type: Date,
+    type: String,
   },
   wakeTime: {
-    type: Date,
+    type: String,
   },
   totalSleep: {
     type: Number,
