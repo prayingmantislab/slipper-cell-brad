@@ -17,10 +17,10 @@ const StatSchema = new Schema({
     type: Number,
   },
   sleepTime: {
-    type: String,
+    type: Date,
   },
   wakeTime: {
-    type: String,
+    type: Date,
   },
   totalSleep: {
     type: Number,

@@ -4,6 +4,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import ChevronRight from '@material-ui/icons/ChevronRight';
+import mockData from './mockData';
+
 
 const Dashboard = () => {
   return (
@@ -69,106 +71,7 @@ const Dashboard = () => {
           type: 'numeric',
         },
       ]}
-      data={[
-        {
-          id: 1,
-          parentOnly: 'Parent 1',
-          date: '4/5/21',
-          name: 'Parent 1',
-          value: 'SomeParentValue',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '6:00',
-          totalSleep: '7hr',
-          sleepScore: 90,
-        },
-        {
-          id: 1,
-          time: '18:00',
-          name: 'Child 1',
-          value: 'child Value',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '6:00',
-          totalSleep: '7hr',
-          sleepScore: 90,
-          parentId: 1,
-        },
-        {
-          id: 1,
-          time: '19:00',
-          name: 'Child 1',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '6:00',
-          totalSleep: '7hr',
-          sleepScore: 90,
-          parentId: 1,
-        },
-        {
-          id: 1,
-          time: '20:00',
-          name: 'Child 1',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '6:00',
-          totalSleep: '7hr',
-          sleepScore: 90,
-          parentId: 1,
-        },
-        {
-          id: 2,
-          parentOnly: 'Parent 2',
-          date: '4/5/21',
-          name: 'Parent 2',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '5:00',
-          totalSleep: '6hr',
-          sleepScore: 95,
-        },
-        {
-          id: 2,
-          time: '18:00',
-          name: 'Child 2',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '5:00',
-          totalSleep: '6hr',
-          sleepScore: 95,
-          parentId: 2,
-        },
-        {
-          id: 2,
-          time: '19:00',
-          name: 'Child 2',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '5:00',
-          totalSleep: '6hr',
-          sleepScore: 95,
-          parentId: 2,
-        },
-        {
-          id: 2,
-          time: '20:00',
-          name: 'Child 2',
-          light: 123,
-          noise: 321,
-          sleepTime: '23:00',
-          wakeTime: '5:00',
-          totalSleep: '6hr',
-          sleepScore: 95,
-          parentId: 2,
-        },
-      ]}
+      data={mockData}
       parentChildData={(row, rows) => rows.find((a) => a.id === row.parentId)}
       options={{
         paging: false,
