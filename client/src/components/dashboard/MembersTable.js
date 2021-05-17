@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import MaterialTable from 'material-table';
 import searchIcon from "@material-ui/icons/Search";
 
-
 const MembersTable = () => {
   const [data, setData] = useState([
     { userId: 1234, id: '123456789', name: 'Luka Duncic' },
