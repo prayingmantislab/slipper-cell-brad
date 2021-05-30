@@ -7,11 +7,17 @@ const User = require('../../models/User');
 
 const Stat = require('../../models/Stat');
 
-// @route Get api/auth
-// @desc Test route
+// @route Get api/stats
+// @desc get all stats 
 // @access Public
-router.get('/', function (req, res) {
-  res.send('GET request to the homepage');
+  router.get('/', async (req, res) => {
+    try {
+      const stats = await Stat.find();
+      res.json(stats);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
 });
 
 // @route Post api/stats
