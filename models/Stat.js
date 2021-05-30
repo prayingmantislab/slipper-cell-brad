@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const moment = require('moment');
 
 const StatSchema = new Schema({
   id: {},
   date: {
     type: Date,
-    default: Date.now,
+    default: moment().format('MMM DD h:mm A')
   },
   name: {
     type: String,

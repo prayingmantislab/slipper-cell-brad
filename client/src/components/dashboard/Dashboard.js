@@ -14,7 +14,7 @@ const Dashboard = () => {
     
       {
         title: 'Id',
-        field: 'id',
+        field: '_id',
         type: 'numeric',
       },
       {
@@ -63,15 +63,15 @@ const Dashboard = () => {
   ]
   useEffect(() => {
     axios.get(
-      'http://localhost:5000/api/stats'
+      'http://192.168.1.243:5000/api/stats'
     )
     .then((resp) =>{
        console.log(resp.data)
-       debugger
+       
        return resp.data
     })
     .then(data => {
-      debugger
+      
       setData(data)
     });
   },[])
