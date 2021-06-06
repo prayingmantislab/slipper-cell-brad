@@ -6,7 +6,7 @@ const StatSchema = new Schema({
   id: {},
   date: {
     type: Date,
-    default: moment().format('MMM DD h:mm A')
+    default: moment().format('YYYY-MM-DD')
   },
   name: {
     type: String,
@@ -14,7 +14,7 @@ const StatSchema = new Schema({
   light: {
     type: Number,
   },
-  noise: {
+  sound: {
     type: Number,
   },
   sleepTime: {

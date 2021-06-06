@@ -1,0 +1,5 @@
+{
+    "mongoURI": "mongodb+srv://mantis123:mantis123@sleepercell.j3kkb.mongodb.net/SleeperCell?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
+  }
+  
