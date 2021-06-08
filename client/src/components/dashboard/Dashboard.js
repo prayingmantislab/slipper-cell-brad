@@ -4,7 +4,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import ChevronRight from '@material-ui/icons/ChevronRight';
-import mockData from './mockData';
 import axios from 'axios';
 
 
@@ -63,7 +62,7 @@ const Dashboard = () => {
   ]
   useEffect(() => {
     axios.get(
-      'http://192.168.1.243:5000/api/stats'
+      'http://127.0.0.1:5000/api/stats'
     )
     .then((resp) =>{
        console.log(resp.data)
