@@ -14,7 +14,7 @@ const StatSchema = new Schema({
   light: {
     type: Number,
   },
-  noise: {
+  sound: {
     type: Number,
   },
   sleepTime: {

@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
     const newStat = new Stat({
       name: req.body.name,
       light: req.body.light,
-      noise: req.body.noise,
+      sound: req.body.sound,
       sleepTime: req.body.sleepTime,
       wakeTime: req.body.wakeTime,
       // totalSleep: wakeTime - sleepTime,
