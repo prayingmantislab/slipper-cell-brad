@@ -6,7 +6,6 @@ const StatSchema = new Schema({
   id: {},
   date: {
     type: Date,
-    default: moment().format('YYYY-MM-DD')
   },
   name: {
     type: String,

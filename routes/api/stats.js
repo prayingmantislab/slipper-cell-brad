@@ -35,6 +35,7 @@ router.post('/', async (req, res) => {
       sleepScore: req.body.sleepScore,
     });
 
+    console.log('about to save ', newStat)
     const stat = await newStat.save();
     res.json(stat);
   } catch (error) {

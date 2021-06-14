@@ -61,8 +61,9 @@ const Dashboard = () => {
       },
   ]
   useEffect(() => {
-    axios.get(
-      'http://127.0.0.1:5000/api/stats'
+    const urlLiran = 'http://192.168.1.243:5000/api/stats';
+
+    axios.get(urlLiran
     )
     .then((resp) =>{
        console.log(resp.data)
