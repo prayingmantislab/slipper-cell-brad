@@ -61,21 +61,29 @@ const Dashboard = () => {
   ];
   useEffect(() => {
     // const urlLiran = 'http://192.168.1.243:5000/api/stats';
+     //const urlCell = 'http://192.168.43.63:5000/api/stats';
+
     const urlAsi = 'http://10.0.0.6:5000/api/stats';
+    // const urlOffice = 'http://192.168.1.8:5000/api/stats';
+
     async function fetchData() {
       const { data } = await axios.get(urlAsi);
       const fomattedItems = data.map((item) => {
+        debugger
         const formattedWakeTime = moment(item.wakeTime).format('HH:mm');
         const formattedSleepTime = moment(item.sleepTime).format('HH:mm');
-        const momentWakeTime = moment(item.wakeTime)
-        const momentSleepTime = moment(item.sleepTime)
-
-        const diffTotalSleep = momentWakeTime.diff(momentSleepTime,'hours');
+        const momentWakeTime = moment(item.wakeTime);
+        const momentSleepTime = moment(item.sleepTime);
+        const momentTime = moment(item.time).format('HH:mm');
+        const momentDate = moment(item.time).format('DD MM YYYY');
+        const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');
         const newItem = {
           ...item,
           wakeTime: formattedWakeTime,
           sleepTime: formattedSleepTime,
           totalSleep: diffTotalSleep,
+          time: momentTime,
+          date: momentDate,
         };
         return newItem;
       });

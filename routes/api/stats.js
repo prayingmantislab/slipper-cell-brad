@@ -27,11 +27,12 @@ router.post('/', async (req, res) => {
   try {
     const newStat = new Stat({
       name: req.body.name,
+      // time: req.body.time,
+      date: req.body.date,
       light: req.body.light,
       sound: req.body.sound,
       sleepTime: req.body.sleepTime,
       wakeTime: req.body.wakeTime,
-      // totalSleep: wakeTime - sleepTime,
       sleepScore: req.body.sleepScore,
     });
 

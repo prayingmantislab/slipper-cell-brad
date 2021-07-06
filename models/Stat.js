@@ -7,6 +7,9 @@ const StatSchema = new Schema({
   date: {
     type: Date,
   },
+  time: {
+    type: Date
+  },
   name: {
     type: String,
   },
