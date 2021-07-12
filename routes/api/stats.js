@@ -8,16 +8,16 @@ const User = require('../../models/User');
 const Stat = require('../../models/Stat');
 
 // @route Get api/stats
-// @desc get all stats 
+// @desc get all stats
 // @access Public
-  router.get('/', async (req, res) => {
-    try {
-      const stats = await Stat.find();
-      res.json(stats);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
-    }
+router.get('/', async (req, res) => {
+  try {
+    const stats = await Stat.find();
+    res.json(stats);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 // @route Post api/stats
@@ -26,17 +26,14 @@ const Stat = require('../../models/Stat');
 router.post('/', async (req, res) => {
   try {
     const newStat = new Stat({
+      id: req.body.id,
       name: req.body.name,
-      // time: req.body.time,
+      time: req.body.time,
       date: req.body.date,
       light: req.body.light,
-      sound: req.body.sound,
-      sleepTime: req.body.sleepTime,
-      wakeTime: req.body.wakeTime,
-      sleepScore: req.body.sleepScore,
     });
 
-    console.log('about to save ', newStat)
+    console.log('about to save ', newStat);
     const stat = await newStat.save();
     res.json(stat);
   } catch (error) {

@@ -6,7 +6,9 @@ import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import axios from 'axios';
 import moment from 'moment';
+import { IP } from './sleepercellbrad-config';
 
+const baseUrl = `http:${IP.asi}/api`;
 const Dashboard = () => {
   const [data, setData] = useState([]);
   const columns = [
@@ -60,23 +62,32 @@ const Dashboard = () => {
     },
   ];
   useEffect(() => {
-    // const urlLiran = 'http://192.168.1.243:5000/api/stats';
-     //const urlCell = 'http://192.168.43.63:5000/api/stats';
+    // const urlLiran = 'http://192.168.1.243:5000/api/form-stats';
+    //const urlCell = 'http://192.168.43.63:5000/api/stats';
 
-    const urlAsi = 'http://10.0.0.6:5000/api/stats';
+    //  const urlAsi = 'http://10.0.0.6:5000/api/stats';
     // const urlOffice = 'http://192.168.1.8:5000/api/stats';
+    // const urlOffice = 'http://192.168.1.243:5000/api/stats';
 
     async function fetchData() {
-      const { data } = await axios.get(urlAsi);
+      debugger
+      const { data } = await axios.get(baseUrl + '/form-stats');
       const fomattedItems = data.map((item) => {
-        debugger
+        debugger;
         const formattedWakeTime = moment(item.wakeTime).format('HH:mm');
         const formattedSleepTime = moment(item.sleepTime).format('HH:mm');
         const momentWakeTime = moment(item.wakeTime);
         const momentSleepTime = moment(item.sleepTime);
-        const momentTime = moment(item.time).format('HH:mm');
         const momentDate = moment(item.time).format('DD MM YYYY');
+        const momentTime = moment(item.time).format('HH:mm');
+
         const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');
+        console.log('---caclulate----');
+        console.log(
+          `${momentWakeTime} DIFF ${momentSleepTime} =${diffTotalSleep}`
+        );
+        console.log('-----------');
+
         const newItem = {
           ...item,
           wakeTime: formattedWakeTime,

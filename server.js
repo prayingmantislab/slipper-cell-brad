@@ -16,6 +16,7 @@ app.use(cors())
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/stats', require('./routes/api/stats'));
+app.use('/api/form-stats', require('./routes/api/form-stats'));
 
 
 
