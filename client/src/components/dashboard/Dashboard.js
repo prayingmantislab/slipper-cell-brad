@@ -8,7 +8,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { IP } from './sleepercellbrad-config';
 
-const baseUrl = `http:${IP.asi}/api`;
+const baseUrl = `http://${IP.liran}/api`;
 const Dashboard = () => {
   const [data, setData] = useState([]);
   const columns = [
@@ -62,16 +62,12 @@ const Dashboard = () => {
     },
   ];
   useEffect(() => {
-    // const urlLiran = 'http://192.168.1.243:5000/api/form-stats';
-    //const urlCell = 'http://192.168.43.63:5000/api/stats';
-
-    //  const urlAsi = 'http://10.0.0.6:5000/api/stats';
-    // const urlOffice = 'http://192.168.1.8:5000/api/stats';
-    // const urlOffice = 'http://192.168.1.243:5000/api/stats';
+   
 
     async function fetchData() {
       debugger
-      const { data } = await axios.get(baseUrl + '/form-stats');
+      const { data } = await axios.get(baseUrl + "/form-stats");
+      // const { data } = await axios.get('http://192.168.1.243:5000/api/form-stats');
       const fomattedItems = data.map((item) => {
         debugger;
         const formattedWakeTime = moment(item.wakeTime).format('HH:mm');
