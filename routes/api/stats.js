@@ -27,10 +27,9 @@ router.post('/', async (req, res) => {
   try {
     const newStat = new Stat({
       id: req.body.id,
-      name: req.body.name,
-      time: req.body.time,
-      date: req.body.date,
+      dateTime: req.body.dateTime,
       light: req.body.light,
+      sound: req.body.sound
     });
 
     console.log('about to save ', newStat);

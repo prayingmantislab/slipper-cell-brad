@@ -4,11 +4,8 @@ const moment = require('moment');
 
 const StatSchema = new Schema({
   id: {},
-  date: {
+  dateTime: {
     type: Date,
-  },
-  time: {
-    type: Date
   },
   name: {
     type: String,
