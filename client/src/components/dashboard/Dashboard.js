@@ -72,7 +72,7 @@ const Dashboard = () => {
         const momentDate = moment(item.time).format('DD MM YYYY');
         const momentTime = moment(item.time).format('HH:mm');
         const userName = item.userName;
-        const userEmail = item.userMail;
+        const userEmail = item.userEmail;
 
 
         const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');

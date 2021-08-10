@@ -19,7 +19,7 @@ const FormStatSchema = new Schema({
   userName: {
     type: String,
   },
-  userMail: {
+  userEmail: {
     type: String,
   },
 });
