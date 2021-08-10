@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
       wakeTime: req.body.wakeTime,
       sleepScore: req.body.sleepScore,
       userName: req.body.userName,
-      userMail: req.body.userMail,
+      userEmail: req.body.userEmail,
     });
 
     console.log('about to save', newFormStat);
