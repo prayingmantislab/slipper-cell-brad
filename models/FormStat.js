@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const FormStatSchema = new Schema({
-  //   id: {},
+ 
+  // id: {},
   sleepTime: {
     type: Date,
   },
@@ -15,8 +16,11 @@ const FormStatSchema = new Schema({
   sleepScore: {
     type: Number,
   },
-  name: {
-    String,
+  userName: {
+    type: String,
+  },
+  userMail: {
+    type: String,
   },
 });
 

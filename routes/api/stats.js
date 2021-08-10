@@ -20,6 +20,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route Get api/mergestats
+// @desc get all stats
+// @access Public
+router.get('/mergeStats', async (req, res) => {
+  try {
+    const mergeStats = await Stat.find(
+      
+    );
+    res.json(mergeStats);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 // @route Post api/stats
 // @desc Create a post
 // @access Private

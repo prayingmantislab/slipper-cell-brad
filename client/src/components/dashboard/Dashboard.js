@@ -13,8 +13,8 @@ const Dashboard = () => {
   const [data, setData] = useState([]);
   const columns = [
     {
-      title: 'Id',
-      field: '_id',
+      title: 'Email',
+      field: 'email',
       type: 'numeric',
     },
     {
@@ -62,20 +62,18 @@ const Dashboard = () => {
     },
   ];
   useEffect(() => {
-   
-
     async function fetchData() {
-      debugger
-      const { data } = await axios.get(baseUrl + "/form-stats");
-      // const { data } = await axios.get('http://192.168.1.243:5000/api/form-stats');
+      const { data } = await axios.get(baseUrl + '/form-stats');
       const fomattedItems = data.map((item) => {
-        debugger;
         const formattedWakeTime = moment(item.wakeTime).format('HH:mm');
         const formattedSleepTime = moment(item.sleepTime).format('HH:mm');
         const momentWakeTime = moment(item.wakeTime);
         const momentSleepTime = moment(item.sleepTime);
         const momentDate = moment(item.time).format('DD MM YYYY');
         const momentTime = moment(item.time).format('HH:mm');
+        const userName = item.userName;
+        const userEmail = item.userMail;
+
 
         const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');
         console.log('---caclulate----');
@@ -91,6 +89,8 @@ const Dashboard = () => {
           totalSleep: diffTotalSleep,
           time: momentTime,
           date: momentDate,
+          name: userName,
+          email: userEmail,
         };
         return newItem;
       });
