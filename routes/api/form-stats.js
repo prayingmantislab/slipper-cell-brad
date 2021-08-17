@@ -12,7 +12,23 @@ const FormStat = require('../../models/FormStat');
 // @access Public
 router.get('/', async (req, res) => {
   try {
-    const fromStats = await FormStat.find();
+    const { startDate } = req.query;
+
+    console.log('!!!!!!!!!!');
+    console.log(startDate);
+    console.log('!!!!!!!!!!');
+
+    let start = new Date(startDate);
+    let end = new Date(start);
+    end.setDate(end.getDate() + 1);
+    console.log('$$$$$$');
+    console.log(start);
+    console.log(end);
+    console.log('$$$$$$');
+
+    const fromStats = await FormStat.find({
+      sleepTime: { $gte: start, $lt: end },
+    });
     res.json(fromStats);
   } catch (err) {
     console.error(err.message);

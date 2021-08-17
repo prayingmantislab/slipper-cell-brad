@@ -28,6 +28,9 @@ const StatSchema = new Schema({
   sleepScore: {
     type: Number,
   },
+  userEmail: {
+    type: String,
+  },
 });
 
 module.exports = Stat = mongoose.model('stat', StatSchema);

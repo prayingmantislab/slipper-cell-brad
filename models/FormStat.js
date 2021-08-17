@@ -6,6 +6,7 @@ const FormStatSchema = new Schema({
   // id: {},
   sleepTime: {
     type: Date,
+    default: Date.now
   },
   wakeTime: {
     type: Date,

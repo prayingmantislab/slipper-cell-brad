@@ -25,9 +25,7 @@ router.get('/', async (req, res) => {
 // @access Public
 router.get('/mergeStats', async (req, res) => {
   try {
-    const mergeStats = await Stat.find(
-      
-    );
+    const mergeStats = await Stat.find();
     res.json(mergeStats);
   } catch (err) {
     console.error(err.message);
@@ -44,7 +42,8 @@ router.post('/', async (req, res) => {
       id: req.body.id,
       dateTime: req.body.dateTime,
       light: req.body.light,
-      sound: req.body.sound
+      sound: req.body.sound,
+      userEmail: req.body.userEmail,
     });
 
     console.log('about to save ', newStat);
