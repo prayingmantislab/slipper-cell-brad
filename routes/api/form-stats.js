@@ -10,7 +10,8 @@ const FormStat = require('../../models/FormStat');
 // @route Get api/formStats
 // @desc get all fromStats
 // @access Public
-router.get('/', async (req, res) => {
+
+const sendDates = async (req, res) => {
   try {
     const { startDate } = req.query;
 
@@ -29,17 +30,18 @@ router.get('/', async (req, res) => {
     const fromStats = await FormStat.find({
       sleepTime: { $gte: start, $lt: end },
     });
+    console.log(fromStats);
     res.json(fromStats);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
-});
+};
 
 // @route Post api/form-stats
 // @desc Create a post
 // @access Private
-router.post('/', async (req, res) => {
+const createDates = async (req, res) => {
   try {
     console.log(req.body);
     const newFormStat = new FormStat({
@@ -58,6 +60,9 @@ router.post('/', async (req, res) => {
     console.error(error.message);
     res.status(500).send('Server Eror');
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  sendDates,
+  createDates,
+};

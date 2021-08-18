@@ -4,21 +4,23 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 
+//controllers: consider to change the server structure like below
+const formStats = require('./routes/api/form-stats');
+
 // Connect Database
 connectDB();
 
 //Init Middleware
 app.use(express.json({ extended: false }));
-app.use(cors())
-
+app.use(cors());
 
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/stats', require('./routes/api/stats'));
-app.use('/api/form-stats', require('./routes/api/form-stats'));
 
-
+app.get('/api/form-stats', formStats.sendDates);
+app.post('/api/form-stats', formStats.createDates);
 
 //serve static assets in production
 if (process.env.NODE_ENV === 'production') {
