@@ -34,7 +34,7 @@ const Dashboard = () => {
   useEffect(() => {
     updateData(selectedDate);
   }, [selectedDate]);
-
+//
   return (
     <Fragment>
       <h3>Change date to show result</h3>
