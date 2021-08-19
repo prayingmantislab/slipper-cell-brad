@@ -3,13 +3,13 @@ import React, { Fragment, useState, useEffect } from 'react';
 // import { alpha } from '@material-ui/core/styles'
 // import Grid from '@material-ui/core/Grid';
 // import DateFnsUtils from '@date-io/date-fns';
-import MomentUtils from '@date-io/moment';
+// import MomentUtils from '@date-io/moment';
 // import {
 //   MuiPickersUtilsProvider,
 //   KeyboardDatePicker,
 // } from '@material-ui/pickers';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 // import TextField from '@material-ui/core/TextField';
 // import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
@@ -36,8 +36,8 @@ const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [data, setData] = useState([]);
 
-  const handleDateChange = (date) => {
-  setSelectedDate(date);
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
   };
 
   useEffect(() => {
@@ -83,18 +83,18 @@ const Dashboard = () => {
   return (
     // <MuiPickersUtilsProvider utils={MomentUtils}>
     //   <Grid container justifyContent="space-around">
-     <Fragment>
-     {/* <KeyboardDatePicker > */}
-    {/* //     margin="normal"
+    <Fragment>
+      {/* <KeyboardDatePicker > */}
+      {/* //     margin="normal"
     //     id="date-picker-dialog"
     //     format="MM/dd/yyyy"
     //     value={selectedDate}
     //     onChange={handleDateChange}
     //     KeyboardButtonProps={{ */}
-    {/* //       'aria-label' :'change date',
+      {/* //       'aria-label' :'change date',
     //     }}
     //   /> */}
-    {/* <form noValidate>
+      {/* <form noValidate>
       <TextField
         id="datetime-local"
         label="Next appointment"
@@ -107,40 +107,39 @@ const Dashboard = () => {
       />
     </form>
      */}
-     <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
-    <MaterialTable
-       style={{ width: '100%', margin: '3%' }}
-       title="Sleep Experiment Data"
-       icons={{
-       Filter: React.forwardRef((props, ref) => <SearchIcon ref={ref} />),
-       Search: React.forwardRef((props, ref) => <SearchIcon ref={ref} />),
-       ResetSearch: React.forwardRef((props, ref) => (
-       <RotateLeftIcon ref={ref} />
-         )),
-        SortArrow: ArrowUpward,
-        DetailPanel: ChevronRight,
-       }}
-       data={data}
-      columns={columns}
-      options={{
-         paging: false,
-         headerStyle: {
-           backgroundColor: '#378FC3',
-         color: '#FFF',
-          fontSize: '17px',
-          textAlign: 'center',
-           fontWeight: 'bold',
-         },
-        rowStyle: (rowData) => ({
-        backgroundColor: !!rowData.parentOnly ? '#EEE' : '#d1cfcf',
-         }),
-       }}
-     />
+      <DatePicker selected={selectedDate} onSelect={handleDateSelect} />
+      <MaterialTable
+        style={{ width: '100%', margin: '3%' }}
+        title="Sleep Experiment Data"
+        icons={{
+          Filter: React.forwardRef((props, ref) => <SearchIcon ref={ref} />),
+          Search: React.forwardRef((props, ref) => <SearchIcon ref={ref} />),
+          ResetSearch: React.forwardRef((props, ref) => (
+            <RotateLeftIcon ref={ref} />
+          )),
+          SortArrow: ArrowUpward,
+          DetailPanel: ChevronRight,
+        }}
+        data={data}
+        columns={columns}
+        options={{
+          paging: false,
+          headerStyle: {
+            backgroundColor: '#378FC3',
+            color: '#FFF',
+            fontSize: '17px',
+            textAlign: 'center',
+            fontWeight: 'bold',
+          },
+          rowStyle: (rowData) => ({
+            backgroundColor: !!rowData.parentOnly ? '#EEE' : '#d1cfcf',
+          }),
+        }}
+      />
     </Fragment>
     // </Grid>
 
     // </MuiPickersUtilsProvider>
-    
   );
 };
 
