@@ -13,7 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import { IP } from './sleepercellbrad-config';
 import { colums } from './tableConfig';
 
-const baseUrl = `http://${IP.tal}/api`;
+const baseUrl = `http://${IP.asi}/api`;
 
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -37,9 +37,11 @@ const Dashboard = () => {
 
   return (
     <Fragment>
+      <h3>Change date to show result</h3>
       <DatePicker
         selected={selectedDate}
         onChange={(date) => setSelectedDate(date)}
+        title='Please choose a date'
       />
       <TableContainer component={Paper} style={{ marginTop: 20 }}>
         <Table style={{ minWidth: 650 }} aria-label="simple table">
