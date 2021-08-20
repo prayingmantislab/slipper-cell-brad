@@ -6,6 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
+
 import MembersTable from './components/dashboard/MembersTable.js';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
@@ -30,20 +31,20 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path='/' component={Landing} />
-          <section className='container'>
+          <Route exact path="/" component={Landing} />
+          <section className="container">
             <Alert />
             <Switch>
-              <Route exact path='/register' component={Register}></Route>
-              <Route exact path='/login' component={Login}></Route>
+              <Route exact path="/register" component={Register}></Route>
+              <Route exact path="/login" component={Login}></Route>
               <PrivateRoute
                 exact
-                path='/dashboard'
+                path="/dashboard"
                 component={Dashboard}
               ></PrivateRoute>
               <PrivateRoute
                 exact
-                path='/memberstable'
+                path="/memberstable"
                 component={MembersTable}
               ></PrivateRoute>
             </Switch>
