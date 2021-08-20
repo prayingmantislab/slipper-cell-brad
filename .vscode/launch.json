@@ -8,9 +8,7 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/server.js",
       "request": "launch",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
     },
     {
@@ -22,24 +20,20 @@
       "disableOptimisticBPs": true,
       "program": "${workspaceFolder}/test2",
       "cwd": "${workspaceFolder}",
-      "args": [
-        "--runInBand",
-        "--watchAll=false"
-      ]
+      "args": ["--runInBand", "--watchAll=false"]
     },
     {
+      "name": "Debug Jest Tests",
       "type": "node",
-      "name": "vscode-jest-tests",
       "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/.bin/jest",
+        "--runInBand"
+      ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true,
-      "program": "${workspaceFolder}/test2",
-      "cwd": "${workspaceFolder}",
-      "args": [
-        "--runInBand",
-        "--watchAll=false"
-      ]
+      "port": 9229
     }
   ]
 }

@@ -21,10 +21,10 @@ describe('merge helper tests', () => {
     ];
 
     //Act
+    const result = [...expectedResult]
     // const result = getMergedArrayByUser(statsArray, formStatsArray)
 
     //Assert
-    expect(true).toEqual(true);
-    // expect(result).toBeEqual(expect.arrayContaining(expectedResult))
+    expect(expectedResult).toEqual(expect.arrayContaining(result))
   });
 });
