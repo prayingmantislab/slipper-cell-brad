@@ -26,15 +26,14 @@ router.get('/', async (req, res) => {
 router.get('/mergeStats', async (req, res) => {
   try {
     const mergeStats = await Stat.find();
-    
+
     // db call 1
     // [{id:"liranmeir@gmail, dailyNoise:12, dailyLight:14}]
-  
+
     // db call 2
     // [{id:"liranmeir@gmail, sleepTime:33, sleepScore:33, wakeTime:22}]
-    
-    const mergedUserData = getMergedArrayByUser(statsArray, formStatsArray)
-  
+
+    const mergedUserData = []//getMergedArrayByUser(statsArray, formStatsArray);
 
     res.json(mergedUserData);
   } catch (err) {
