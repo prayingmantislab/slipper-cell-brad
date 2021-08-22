@@ -34,14 +34,13 @@ const Dashboard = () => {
   useEffect(() => {
     updateData(selectedDate);
   }, [selectedDate]);
-//
+  //
   return (
     <Fragment>
       <h3>Change date to show result</h3>
       <DatePicker
         selected={selectedDate}
         onChange={(date) => setSelectedDate(date)}
-        title='Please choose a date'
       />
       <TableContainer component={Paper} style={{ marginTop: 20 }}>
         <Table style={{ minWidth: 650 }} aria-label="simple table">

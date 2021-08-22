@@ -33,7 +33,7 @@ router.get('/mergeStats', async (req, res) => {
     // db call 2
     // [{id:"liranmeir@gmail, sleepTime:33, sleepScore:33, wakeTime:22}]
 
-    const mergedUserData = []//getMergedArrayByUser(statsArray, formStatsArray);
+    const mergedUserData = []; //getMergedArrayByUser(statsArray, formStatsArray);
 
     res.json(mergedUserData);
   } catch (err) {
