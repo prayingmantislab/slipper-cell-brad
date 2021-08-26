@@ -25,7 +25,14 @@ router.get('/', async (req, res) => {
 // @access Public
 router.get('/mergeStats', async (req, res) => {
   try {
-    const mergeStats = await Stat.find();
+    const mergeStats = await Stat.find({
+     dateTime: {
+        $gte: new Date(new Date(2021-08-25).setHours(00,00,00)),
+        $lt: new Date(new Date(2021-08-26).setHours(23, 59, 59))
+      } 
+    })
+// group them into an array and avreage the sound and the light
+
 
     // db call 1
     // [{id:"liranmeir@gmail, dailyNoise:12, dailyLight:14}]
@@ -35,7 +42,7 @@ router.get('/mergeStats', async (req, res) => {
 
     const mergedUserData = []; //getMergedArrayByUser(statsArray, formStatsArray);
 
-    res.json(mergedUserData);
+    res.json(mergeStats);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
