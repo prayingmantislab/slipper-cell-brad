@@ -6,6 +6,7 @@ const cors = require('cors');
 
 //controllers: consider to change the server structure like below
 const formStats = require('./routes/api/form-stats');
+const aggregation = require('./aggregation');
 
 // Connect Database
 connectDB();
@@ -13,6 +14,7 @@ connectDB();
 //Init Middleware
 app.use(express.json({ extended: false }));
 app.use(cors());
+app.options('*', cors());
 
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
@@ -21,7 +23,7 @@ app.use('/api/stats', require('./routes/api/stats'));
 
 app.get('/api/form-stats', formStats.sendDates);
 app.post('/api/form-stats', formStats.createDates);
-
+app.post('/api/avg', aggregation.dailyAverage);
 //serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder

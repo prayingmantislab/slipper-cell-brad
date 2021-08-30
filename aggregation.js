@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-async function main() {
+const dailyAverage = async (req, res) => {
   /**
    * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
    * See https://docs.mongodb.com/drivers/node/ for more details
@@ -14,8 +14,8 @@ async function main() {
    * In case: '[MONGODB DRIVER] Warning: Current Server Discovery and Monitoring engine is deprecated...'
    * pass option { useUnifiedTopology: true } to the MongoClient constructor.
    */
-//   const client = new MongoClient(uri);
-const client =  new MongoClient(uri, {useUnifiedTopology: true})
+  //   const client = new MongoClient(uri);
+  const client = new MongoClient(uri, { useUnifiedTopology: true });
 
   try {
     // Connect to the MongoDB cluster
@@ -24,14 +24,15 @@ const client =  new MongoClient(uri, {useUnifiedTopology: true})
     // Make the appropriate DB calls
 
     // Print the 10 cheapest suburbs in the Sydney, Australia market
-    await createDailyAverage(client);
+    const dAvg = await createDailyAverage(client, req.body.selectedDate);
+    res.status(200).json(dAvg);
+  } catch (err) {
+    res.status(500).json(err);
   } finally {
     // Close the connection to the MongoDB cluster
     await client.close();
   }
-}
-
-main().catch(console.error);
+};
 
 /**
  * Print the cheapest suburbs for a given market
@@ -44,7 +45,7 @@ async function createDailyAverage(client, selectedDate) {
       $match: {
         dateTime: {
           $gte: new Date(selectedDate),
-          $lt: new Date(selectedDate + 1),
+          $lt: new Date(selectedDate),
         },
         light: {
           $gt: 0,
@@ -68,12 +69,15 @@ async function createDailyAverage(client, selectedDate) {
   ];
 
   // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#aggregate for the aggregate() docs
-  const aggCursor = client
+  const aggCursor = await client
     .db('SleeperCell')
     .collection('stats')
-    .aggregate(pipeline);
+    .aggregate(pipeline)
+    .toArray();
 
-  await aggCursor.forEach((stat) => {
-    console.log(`${stats._id}: ${stat.dailyLight}:${stat.dailySound}`);
-  });
+  return aggCursor;
 }
+
+module.exports = {
+  dailyAverage,
+};

@@ -9,6 +9,7 @@ export const formattedItemsUtil = (data) =>
     const momentTime = moment(item.sleepTime).format('HH:mm');
     const userName = item.userName;
     const userEmail = item.userEmail;
+    const avg = item.avg;
 
     const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');
     console.log('---caclulate----');
@@ -24,6 +25,7 @@ export const formattedItemsUtil = (data) =>
       date: momentDate,
       name: userName,
       email: userEmail,
+      average: avg,
     };
     return newItem;
   });

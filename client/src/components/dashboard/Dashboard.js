@@ -13,7 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import { IP } from './sleepercellbrad-config';
 import { colums } from './tableConfig';
 
-const baseUrl = `http://${IP.asi}/api`;
+const baseUrl = `http://${IP.tal}/api`;
 
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -21,9 +21,13 @@ const Dashboard = () => {
 
   const updateData = async (date) => {
     try {
+      debugger;
       const { data } = await axios.get(
         `${baseUrl}/form-stats?startDate=${date.toISOString()}`
       );
+
+      const { avg } = await axios.post(`${baseUrl}/avg`, date);
+      data.avg = avg;
       const formattedItems = formattedItemsUtil(data);
       setRows(formattedItems);
     } catch (err) {
@@ -46,8 +50,12 @@ const Dashboard = () => {
         <Table style={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              {colums.map((col) => {
-                return <TableCell align="left">{col}</TableCell>;
+              {colums.map((col, index) => {
+                return (
+                  <TableCell key={index} align="left">
+                    {col}
+                  </TableCell>
+                );
               })}
             </TableRow>
           </TableHead>
@@ -63,6 +71,7 @@ const Dashboard = () => {
                 <TableCell align="left">{row.wakeTime}</TableCell>
                 <TableCell align="left">{row.totalSleep}</TableCell>
                 <TableCell align="left">{row.sleepScore}</TableCell>
+                <TableCell align="left">{row.average}</TableCell>
               </TableRow>
             ))}
           </TableBody>

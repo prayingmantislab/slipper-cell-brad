@@ -9,11 +9,11 @@ const getMergedArrayByUser = (statsArray, formStatsArray) => {
     );
 
     const newMergedItem = { ...statsArrayItem, ...formStatsArrayItem };
-    
+
     resultArray.push(newMergedItem);
   }
 
-  return resultArray
+  return resultArray;
 };
 
 module.exports = { getMergedArrayByUser };
