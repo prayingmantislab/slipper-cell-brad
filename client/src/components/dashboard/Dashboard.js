@@ -21,14 +21,13 @@ const Dashboard = () => {
 
   const updateData = async (date) => {
     try {
-      debugger;
       const { data } = await axios.get(
         `${baseUrl}/form-stats?startDate=${date.toISOString()}`
       );
-
-      const { avg } = await axios.post(`${baseUrl}/avg`, date);
-      data.avg = avg;
-      const formattedItems = formattedItemsUtil(data);
+      const avg = await axios.post('api/avg', {
+        selectedDate: JSON.stringify(date.toISOString()),
+      });
+      const formattedItems = formattedItemsUtil(data, avg.data); // [{row1,row2}],
       setRows(formattedItems);
     } catch (err) {
       console.log(err);
@@ -71,7 +70,8 @@ const Dashboard = () => {
                 <TableCell align="left">{row.wakeTime}</TableCell>
                 <TableCell align="left">{row.totalSleep}</TableCell>
                 <TableCell align="left">{row.sleepScore}</TableCell>
-                <TableCell align="left">{row.average}</TableCell>
+                <TableCell align="left">{row.averageLight}</TableCell>
+                <TableCell align="left">{row.averageNoise}</TableCell>
               </TableRow>
             ))}
           </TableBody>

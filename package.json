@@ -2,6 +2,7 @@
   "name": "slipper-cell-brad",
   "version": "1.0.0",
   "description": "Research sleeping app",
+  "proxy": "http://192.168.0.109:5000/",
   "main": "server.js",
   "scripts": {
     "start": "node server",

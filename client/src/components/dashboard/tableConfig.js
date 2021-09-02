@@ -8,5 +8,6 @@ export const colums = [
   'Wake Time',
   'Total Sleep',
   'Sleep Score',
-  'Daily Average',
+  'Average Light',
+  'Average Noise',
 ];

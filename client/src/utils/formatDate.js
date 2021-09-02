@@ -1,5 +1,5 @@
 import moment from 'moment';
-export const formattedItemsUtil = (data) =>
+export const formattedItemsUtil = (data, avg) =>
   data?.map((item) => {
     const formattedWakeTime = moment(item.wakeTime).format('HH:mm');
     const formattedSleepTime = moment(item.sleepTime).format('HH:mm');
@@ -9,7 +9,12 @@ export const formattedItemsUtil = (data) =>
     const momentTime = moment(item.sleepTime).format('HH:mm');
     const userName = item.userName;
     const userEmail = item.userEmail;
-    const avg = item.avg;
+
+    //avarage
+    let averageNoise, averageLight;
+    const getAvrage = avg.find((itemAvg) => itemAvg.id === item._id);
+    if (getAvrage?.noise) averageNoise = getAvrage.noise;
+    if (getAvrage?.light) averageLight = getAvrage.light;
 
     const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');
     console.log('---caclulate----');
@@ -25,7 +30,8 @@ export const formattedItemsUtil = (data) =>
       date: momentDate,
       name: userName,
       email: userEmail,
-      average: avg,
+      averageNoise,
+      averageLight,
     };
     return newItem;
   });

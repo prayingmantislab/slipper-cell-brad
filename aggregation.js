@@ -25,7 +25,7 @@ const dailyAverage = async (req, res) => {
 
     // Print the 10 cheapest suburbs in the Sydney, Australia market
     const dAvg = await createDailyAverage(client, req.body.selectedDate);
-    res.status(200).json(dAvg);
+    res.status(200).send(dAvg);
   } catch (err) {
     res.status(500).json(err);
   } finally {
