@@ -13,7 +13,8 @@ import Paper from '@material-ui/core/Paper';
 import { IP } from './sleepercellbrad-config';
 import { colums } from './tableConfig';
 
-const baseUrl = `http://${IP.tal}/api`;
+// const baseUrl = `http://${IP.liran}/api`; something
+const baseUrl = `http://localhost:5000/api`;
 
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
