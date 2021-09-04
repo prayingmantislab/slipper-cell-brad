@@ -12,7 +12,6 @@ const FormStat = require('../../models/FormStat');
 // @access Public
 
 const sendDates = async (req, res) => {
-  console.log(req);
   try {
     const { startDate } = req.query;
 

@@ -26,9 +26,11 @@ const Dashboard = () => {
         `${baseUrl}/form-stats?startDate=${date.toISOString()}`
       );
       const avg = await axios.post('api/avg', {
-        selectedDate: JSON.stringify(date.toISOString()),
+        selectedDate: JSON.stringify(date),
       });
-      const formattedItems = formattedItemsUtil(data, avg.data); // [{row1,row2}],
+      //fetch light stats... insert to state.
+      console.log(data, avg.data);
+      const formattedItems = formattedItemsUtil(data, avg.data);
       setRows(formattedItems);
     } catch (err) {
       console.log(err);
@@ -65,8 +67,6 @@ const Dashboard = () => {
                 <TableCell align="left">{row.email}</TableCell>
                 <TableCell align="left">{row.date}</TableCell>
                 <TableCell align="left">{row.name}</TableCell>
-                <TableCell align="left">{row.light}</TableCell>
-                <TableCell align="left">{row.noise}</TableCell>
                 <TableCell align="left">{row.sleepTime}</TableCell>
                 <TableCell align="left">{row.wakeTime}</TableCell>
                 <TableCell align="left">{row.totalSleep}</TableCell>

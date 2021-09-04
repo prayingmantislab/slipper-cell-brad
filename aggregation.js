@@ -1,3 +1,4 @@
+const moment = require('moment');
 const { MongoClient } = require('mongodb');
 
 const dailyAverage = async (req, res) => {
@@ -24,7 +25,11 @@ const dailyAverage = async (req, res) => {
     // Make the appropriate DB calls
 
     // Print the 10 cheapest suburbs in the Sydney, Australia market
-    const dAvg = await createDailyAverage(client, req.body.selectedDate);
+    const zeroTime = moment(JSON.parse(req.body.selectedDate));
+    zeroTime.set({ hour: 0, minute: 0, second: 0, millisecond: 0 });
+    const dayAfter = moment(zeroTime).add(1, 'days');
+
+    const dAvg = await createDailyAverage(client, zeroTime, dayAfter);
     res.status(200).send(dAvg);
   } catch (err) {
     res.status(500).json(err);
@@ -39,13 +44,13 @@ const dailyAverage = async (req, res) => {
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the stat database
  * @param {String} country The country for the given market
  */
-async function createDailyAverage(client, selectedDate) {
+async function createDailyAverage(client, zeroTime, dayAfter) {
   const pipeline = [
     {
       $match: {
         dateTime: {
-          $gte: new Date(selectedDate),
-          $lt: new Date(selectedDate),
+          $gte: new Date(zeroTime),
+          $lt: new Date(dayAfter),
         },
         light: {
           $gt: 0,

@@ -12,9 +12,9 @@ export const formattedItemsUtil = (data, avg) =>
 
     //avarage
     let averageNoise, averageLight;
-    const getAvrage = avg.find((itemAvg) => itemAvg.id === item._id);
-    if (getAvrage?.noise) averageNoise = getAvrage.noise;
-    if (getAvrage?.light) averageLight = getAvrage.light;
+    const getAvrage = avg.find((itemAvg) => itemAvg._id === item.userEmail);
+    if (getAvrage?.dailySound) averageNoise = getAvrage.dailySound;
+    if (getAvrage?.dailyLight) averageLight = getAvrage.dailyLight;
 
     const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');
     console.log('---caclulate----');
