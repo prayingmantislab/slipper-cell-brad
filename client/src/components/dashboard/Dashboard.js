@@ -13,8 +13,9 @@ import Paper from '@material-ui/core/Paper';
 import { IP } from './sleepercellbrad-config';
 import { colums } from './tableConfig';
 
-// const baseUrl = `http://${IP.liran}/api`; something
-const baseUrl = `http://localhost:5000/api`;
+const baseUrl = process.env.NODE_ENV === 'production'? '' : 'http://localhost:5000' 
+
+console.log(`baseUrl:${baseUrl}`)
 
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -23,9 +24,9 @@ const Dashboard = () => {
   const updateData = async (date) => {
     try {
       const { data } = await axios.get(
-        `${baseUrl}/form-stats?startDate=${date.toISOString()}`
+        `${baseUrl}/api/form-stats?startDate=${date.toISOString()}`
       );
-      const avg = await axios.post('api/avg', {
+      const avg = await axios.post(`${baseUrl}/api/avg`, {
         selectedDate: JSON.stringify(date),
       });
       //fetch light stats... insert to state.
