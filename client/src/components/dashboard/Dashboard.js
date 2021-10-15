@@ -11,9 +11,9 @@ import axios from 'axios';
 import { formattedItemsUtil } from '../../utils/formatDate';
 import Paper from '@material-ui/core/Paper';
 import { IP } from './sleepercellbrad-config';
-import { colums } from './tableConfig';
+import { columns } from './tableConfig';
 
-const baseUrl = process.env.NODE_ENV === 'production'? '' : 'http://localhost:5000' 
+const baseUrl = process.env.NODE_ENV === 'production'? '' : `http://${IP.asi}` 
 
 console.log(`baseUrl:${baseUrl}`)
 
@@ -53,7 +53,7 @@ const Dashboard = () => {
         <Table style={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              {colums.map((col, index) => {
+              {columns.map((col, index) => {
                 return (
                   <TableCell key={index} align="left">
                     {col}
@@ -74,6 +74,10 @@ const Dashboard = () => {
                 <TableCell align="left">{row.sleepScore}</TableCell>
                 <TableCell align="left">{row.averageLight}</TableCell>
                 <TableCell align="left">{row.averageNoise}</TableCell>
+                <TableCell align="left">{row.deepSleep}</TableCell>
+                <TableCell align="left">{row.lightSleep}</TableCell>
+
+
               </TableRow>
             ))}
           </TableBody>

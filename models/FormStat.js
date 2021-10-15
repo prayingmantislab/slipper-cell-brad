@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const FormStatSchema = new Schema({
- 
   // id: {},
   sleepTime: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   wakeTime: {
     type: Date,
@@ -22,6 +21,12 @@ const FormStatSchema = new Schema({
   },
   userEmail: {
     type: String,
+  },
+  deepSleep: {
+    type: Date,
+  },
+  lightSleep: {
+    type: Date,
   },
 });
 

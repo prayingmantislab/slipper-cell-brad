@@ -1,4 +1,4 @@
-export const colums = [
+export const columns = [
   'Email',
   'Date',
   'Full Name',
@@ -8,4 +8,6 @@ export const colums = [
   'Sleep Score',
   'Average Light',
   'Average Noise',
+  'Deep Sleep',
+  'Light Sleep',
 ];

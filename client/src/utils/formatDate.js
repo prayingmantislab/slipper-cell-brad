@@ -3,6 +3,9 @@ export const formattedItemsUtil = (data, avg) =>
   data?.map((item) => {
     const formattedWakeTime = moment(item.wakeTime).format('HH:mm');
     const formattedSleepTime = moment(item.sleepTime).format('HH:mm');
+    const formattedDeepSleep = moment(item.deepSleep).format('HH:mm');
+    const formattedLightSleep = moment(item.lightSleep).format('HH:mm');
+
     const momentWakeTime = moment(item.wakeTime);
     const momentSleepTime = moment(item.sleepTime);
     const momentDate = moment(item.sleepTime).format('DD MM YYYY');
@@ -26,6 +29,8 @@ export const formattedItemsUtil = (data, avg) =>
       wakeTime: formattedWakeTime,
       sleepTime: formattedSleepTime,
       totalSleep: diffTotalSleep,
+      deepSleep: formattedDeepSleep,
+      lightSleep: formattedLightSleep,
       time: momentTime,
       date: momentDate,
       name: userName,
