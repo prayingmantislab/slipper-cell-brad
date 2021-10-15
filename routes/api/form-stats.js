@@ -23,6 +23,10 @@ const sendDates = async (req, res) => {
     console.log(start);
     console.log(end);
 
+    console.log({
+      sleepTime: { $gte: start, $lt: end },
+    })
+
     const fromStats = await FormStat.find({
       sleepTime: { $gte: start, $lt: end },
     });
@@ -43,6 +47,8 @@ const createDates = async (req, res) => {
     const newFormStat = new FormStat({
       //   id: req.body.id,
       sleepTime: req.body.sleepTime,
+      deepSleep: req.body.deepSleep,
+      lightSleep: req.body.lightSleep,
       wakeTime: req.body.wakeTime,
       sleepScore: req.body.sleepScore,
       userName: req.body.userName,
