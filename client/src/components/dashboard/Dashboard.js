@@ -13,7 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import { IP } from './sleepercellbrad-config';
 import { columns } from './tableConfig';
 
-const baseUrl = process.env.NODE_ENV === 'production'? '' : `http://${IP.asi}` 
+const baseUrl = process.env.NODE_ENV === 'production'? 'https://slipper-cell.onrender.com/api' : `http://${IP.liran}` 
 
 console.log(`baseUrl:${baseUrl}`)
 

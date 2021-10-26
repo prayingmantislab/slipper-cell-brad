@@ -8,6 +8,7 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/server.js",
       "request": "launch",
+      "runtimeExecutable": "nodemon",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
     },

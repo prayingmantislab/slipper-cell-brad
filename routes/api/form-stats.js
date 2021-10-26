@@ -18,18 +18,23 @@ const sendDates = async (req, res) => {
     console.log(startDate);
 
     let start = new Date(startDate);
+    start.setHours(0);
+    start.setMinutes(0);
+    console.log(start)
+    
     let end = new Date(start);
+    end.setHours(0);
+    end.setMinutes(0);
+
     end.setDate(end.getDate() + 1);
-    console.log(start);
-    console.log(end);
 
-    console.log({
+    const findQuery = {
       sleepTime: { $gte: start, $lt: end },
-    })
+    };
 
-    const fromStats = await FormStat.find({
-      sleepTime: { $gte: start, $lt: end },
-    });
+    console.log(findQuery);
+
+    const fromStats = await FormStat.find(findQuery);
     console.log(fromStats);
     res.json(fromStats);
   } catch (err) {
