@@ -20,8 +20,8 @@ const sendDates = async (req, res) => {
     let start = new Date(startDate);
     start.setHours(0);
     start.setMinutes(0);
-    console.log(start)
-    
+    console.log(start);
+
     let end = new Date(start);
     end.setHours(0);
     end.setMinutes(0);

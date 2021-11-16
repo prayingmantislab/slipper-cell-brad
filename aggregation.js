@@ -23,8 +23,6 @@ const dailyAverage = async (req, res) => {
     await client.connect();
 
     // Make the appropriate DB calls
-
-    // Print the 10 cheapest suburbs in the Sydney, Australia market
     const zeroTime = moment(JSON.parse(req.body.selectedDate));
     zeroTime.set({ hour: 0, minute: 0, second: 0, millisecond: 0 });
     const dayAfter = moment(zeroTime).add(1, 'days');
@@ -40,7 +38,6 @@ const dailyAverage = async (req, res) => {
 };
 
 /**
- * Print the cheapest suburbs for a given market
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the stat database
  * @param {String} country The country for the given market
  */
@@ -63,10 +60,10 @@ async function createDailyAverage(client, zeroTime, dayAfter) {
     {
       $group: {
         _id: '$userEmail',
-        dailyLight: {
+        dailySound: {
           $avg: '$sound',
         },
-        dailySound: {
+        dailyLight: {
           $avg: '$light',
         },
       },
