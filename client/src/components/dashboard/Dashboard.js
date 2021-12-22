@@ -13,9 +13,12 @@ import Paper from '@material-ui/core/Paper';
 import { IP } from './sleepercellbrad-config';
 import { columns } from './tableConfig';
 
-const baseUrl = process.env.NODE_ENV === 'production'? 'https://slipper-cell.onrender.com' : `http://${IP.asi}` 
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://slipper-cell.onrender.com'
+    : `http://${IP.asi}`;
 
-console.log(`baseUrl:${baseUrl}`)
+console.log(`baseUrl:${baseUrl}`);
 
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -76,8 +79,6 @@ const Dashboard = () => {
                 <TableCell align="left">{row.averageNoise}</TableCell>
                 <TableCell align="left">{row.deepSleep}</TableCell>
                 <TableCell align="left">{row.lightSleep}</TableCell>
-
-
               </TableRow>
             ))}
           </TableBody>

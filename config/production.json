@@ -1,5 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://mantis123:mantis123@sleepercell.j3kkb.mongodb.net/SleeperCell?retryWrites=true&w=majority",
-    "jwtSecret": "mysecrettoken"
-  }
-  
+  "mongoURI": "mongodb://mantis123:mantis123@sleepercell-shard-00-00.j3kkb.mongodb.net:27017,sleepercell-shard-00-01.j3kkb.mongodb.net:27017,sleepercell-shard-00-02.j3kkb.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-yo7hhb-shard-0&authSource=admin&retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
+}
