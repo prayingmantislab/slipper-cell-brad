@@ -1,4 +1,4 @@
-changedconst express = require('express');
+const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
@@ -30,12 +30,12 @@ const sendDates = async (req, res) => {
     const findQuery = {
       sleepTime: { $gte: start, $lt: end },
     };
-    console.log('start and end',start, end);
+    console.log('start and end', start, end);
 
     console.log(findQuery);
 
     const fromStats = await FormStat.find(findQuery);
-    console.log('fromStats',fromStats);
+    console.log('fromStats', fromStats);
     res.json(fromStats);
   } catch (err) {
     console.error(err.message);
