@@ -58,6 +58,7 @@ const createDates = async (req, res) => {
       sleepScore: req.body.sleepScore,
       userName: req.body.userName,
       userEmail: req.body.userEmail,
+      fileLink: req.body.fileLink,
     });
 
     console.log('about to save', newFormStat);

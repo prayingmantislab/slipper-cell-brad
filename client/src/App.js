@@ -6,6 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
+import FileDashboard from './components/dashboard/FileDashboard';
 
 import MembersTable from './components/dashboard/MembersTable.js';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -39,8 +40,8 @@ const App = () => {
               <Route exact path="/login" component={Login}></Route>
               <PrivateRoute
                 exact
-                path="/dashboard"
-                component={Dashboard}
+                path="/file-dashboard"
+                component={FileDashboard}
               ></PrivateRoute>
               <PrivateRoute
                 exact

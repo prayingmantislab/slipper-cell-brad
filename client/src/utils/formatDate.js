@@ -12,12 +12,13 @@ export const formattedItemsUtil = (data, avg) =>
     const momentTime = moment(item.sleepTime).format('HH:mm');
     const userName = item.userName;
     const userEmail = item.userEmail;
+    const fileLink = item.fileLink;
 
     //avarage
-    let averageNoise, averageLight;
-    const getAvrage = avg.find((itemAvg) => itemAvg._id === item.userEmail);
-    if (getAvrage?.dailySound) averageNoise = getAvrage.dailySound;
-    if (getAvrage?.dailyLight) averageLight = getAvrage.dailyLight;
+    // let averageNoise, averageLight;
+    // const getAvrage = avg.find((itemAvg) => itemAvg._id === item.userEmail);
+    // if (getAvrage?.dailySound) averageNoise = getAvrage.dailySound;
+    // if (getAvrage?.dailyLight) averageLight = getAvrage.dailyLight;
 
     const diffTotalSleep = momentWakeTime.diff(momentSleepTime, 'hours');
     console.log('---caclulate----');
@@ -35,8 +36,7 @@ export const formattedItemsUtil = (data, avg) =>
       date: momentDate,
       name: userName,
       email: userEmail,
-      averageNoise,
-      averageLight,
+      fileLink: fileLink,
     };
     return newItem;
   });

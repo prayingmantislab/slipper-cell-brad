@@ -10,7 +10,6 @@ const aggregation = require('./aggregation');
 
 // Connect Database
 connectDB();
-debugger
 //Init Middleware
 app.use(express.json({ extended: false }));
 app.use(cors());

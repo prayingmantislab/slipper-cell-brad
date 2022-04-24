@@ -16,6 +16,9 @@ const FormStatSchema = new Schema({
   sleepScore: {
     type: Number,
   },
+  fileLink: {
+    type: String,
+  },
   userName: {
     type: String,
   },
