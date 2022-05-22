@@ -6,9 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
-import FileDashboard from './components/dashboard/FileDashboard';
 
-import MembersTable from './components/dashboard/MembersTable.js';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -40,14 +38,10 @@ const App = () => {
               <Route exact path="/login" component={Login}></Route>
               <PrivateRoute
                 exact
-                path="/file-dashboard"
-                component={FileDashboard}
+                path="/dashboard"
+                component={Dashboard}
               ></PrivateRoute>
-              <PrivateRoute
-                exact
-                path="/memberstable"
-                component={MembersTable}
-              ></PrivateRoute>
+              
             </Switch>
           </section>
         </Fragment>
